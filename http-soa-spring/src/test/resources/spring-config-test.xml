@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:hsoa="http://www.bingo.com/schema/hsoa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.bingo.com/schema/hsoa http://www.bingo.com/schema/spring-hsoa.xsd "
+       default-lazy-init="false" default-autowire="byName">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!--<bean class="com.bingo.http.spring.ServiceFactoryBean">
+        <property name="clazs" value="com.bingo.httpsoa.spring.test.BaiduService"/>
+    </bean>-->
+    <!--<bean class="com.bingo.http.spring.BingoHttpBeanFactoryPostProcessor">
+        <property name="scanPaths">
+            <array>
+                <value>com.bingo.httpsoa.spring.test</value>
+            </array>
+        </property>
+    </bean>-->
+    <bean id="paramBuildFactory" class="com.bingo.http.ser.builder.pb.ParamBuilderFactory"/>
+    <!--<hsoa:scanProcessor path="com.bingo.httpsoa.spring.test" paramBuilderFactory="paramBuildFactory"/>-->
+    <hsoa:service class="com.bingo.httpsoa.spring.test.BaiduService" paramBuilderFactory="paramBuildFactory"/>
+</beans>

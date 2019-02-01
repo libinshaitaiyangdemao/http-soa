@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.bingo.com/schema/hsoa"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.bingo.com/schema/hsoa"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified">
+
+	<xsd:element name="scanProcessor">
+		<xsd:complexType>
+			<xsd:attribute name="path" type="xsd:string"/>
+			<xsd:attribute name="excludes" type="xsd:string"/>
+			<xsd:attributeGroup ref="attrGroup"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attributeGroup name="attrGroup">
+		<xsd:attribute name="paramBuilderFactory" type="xsd:string"/>
+		<xsd:attribute name="returnBuilderFactory" type="xsd:string"/>
+		<xsd:attribute name="httpExecutorFactor" type="xsd:string"/>
+		<xsd:attribute name="filters" type="xsd:string"/>
+	</xsd:attributeGroup>
+
+	<xsd:element name="service">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:string"/>
+			<xsd:attribute name="class" type="xsd:string"/>
+			<xsd:attributeGroup ref="attrGroup"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
